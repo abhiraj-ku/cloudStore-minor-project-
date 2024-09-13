@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: self-hosted
     strategy:
-      matrix: node-version:[18.x]
+      matrix: [18.x]
 
     steps:
       - name: checkout code repo
