@@ -8,8 +8,6 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    strategy:
-      matrix: [18.x]
 
     steps:
       - name: checkout code repo

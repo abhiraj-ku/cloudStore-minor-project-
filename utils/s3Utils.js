@@ -1,12 +1,20 @@
 const aws = require("aws-sdk");
 const s3 = new aws.S3();
 
-exports.deleteFileFromS3 = async (params) => {
-  try {
-    const data = await s3.deleteObject(params).promise();
-    return data;
-  } catch (err) {
-    console.error("Error deleting file from S3:", err);
-    throw err;
-  }
+const s3 = require("../config/aws");
+
+// Upload file to S3
+exports.uploadFileToS3 = (file) => {
+  const params = {
+    Bucket: process.env.S3_BUCKET_NAME,
+    Key: file.filename,
+    Body: file.buffer,
+  };
+
+  return s3.upload(params).promise();
+};
+
+// Delete file from S3
+exports.deleteFileFromS3 = (params) => {
+  return s3.deleteObject(params).promise();
 };
