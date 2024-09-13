@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Kumar - Backend Cloud Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #000; /* Black */
+            --secondary-color: #f39c12; /* Orange */
+            --text-color: #fff; /* White */
+            --bg-color: #000; /* Black */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/api/placeholder/1200/800');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-color);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            animation: textZoom 2s ease-in-out;
+        }
+
+        @keyframes textZoom {
+            from {
+                transform: scale(0.5);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .hero-content p {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #e67e22;
+        }
+
+        section {
+            padding: 80px 0;
+            transition: all 0.3s ease;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background-color: var(--bg-color);
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--secondary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .projects {
+            background-color: #111;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: #222;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.5s ease;
+        }
+
+        .project-card img:hover {
+            filter: grayscale(0);
+        }
+
+        .project-card-content {
+            padding: 20px;
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .fadeIn {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fadeIn.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <h1>Abhishek Kumar</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Abhishek Kumar</h1>
+            <p>Backend Cloud Engineer</p>
+            <a href="#contact" class="btn">Get in touch</a>
+        </div>
+    </section>
+
+    <section id="about" class="container fadeIn">
+        <h2>About Me</h2>
+        <p>I'm a passionate Backend Cloud Engineer with expertise in building scalable and efficient server-side applications. My focus is on creating
+robust backend systems and leveraging cloud technologies to deliver high-performance solutions. With a strong foundation in Node.js and a growing proficiency in DevOps practices, I'm dedicated to continuous learning and staying at the forefront of backend and cloud technologies.</p>
+    </section>
+
+    <section id="skills" class="container fadeIn">
+        <h2>Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-server"></i>
+                <h3>Backend Development</h3>
+                <p>Node.js, Express.js, RESTful APIs</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-cloud"></i>
+                <h3>Cloud Services</h3>
+                <p>AWS, Docker, Kubernetes</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <h3>Databases</h3>
+                <p>MongoDB, PostgreSQL, Redis</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-code-branch"></i>
+                <h3>DevOps</h3>
+                <p>CI/CD, Git, Infrastructure as Code</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects fadeIn">
+        <div class="container">
+            <h2>Recent Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="/api/placeholder/300/200" alt="Project 1">
+                    <div class="project-card-content">
+                        <h3>Scalable Microservices Architecture</h3>
+                        <p>Designed and implemented a microservices-based backend system using Node.js and Docker, deployed on AWS ECS.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="/api/placeholder/300/200" alt="Project 2">
+                    <div class="project-card-content">
+                        <h3>Real-time Data Processing Pipeline</h3>
+                        <p>Built a high-throughput data processing pipeline using AWS Lambda, S3, and SQS for real-time analytics.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="/api/placeholder/300/200" alt="Project 3">
+                    <div class="project-card-content">
+                        <h3>Automated CI/CD Pipeline</h3>
+                        <p>Implemented a fully automated CI/CD pipeline using GitHub Actions, Docker, and AWS ECS for seamless deployments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container fadeIn">
+        <h2>Get in Touch</h2>
+        <p>I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+        <p>Email: abhirajabhi312@gmail.com</p>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/abhishek-ko" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com/abhirajabhi312" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://github.com/yourgithub" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Abhishek Kumar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation trigger on scroll
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.fadeIn').forEach(el => {
+                const pos = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (pos < windowHeight - 100) {
+                    el.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
