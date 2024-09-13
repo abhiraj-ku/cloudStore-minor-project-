@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudSphere</title>
+    <style>
+        /* Resetting some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Minimal body styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #031f27, #042434);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Smooth animations for elements */
+        a, button {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Header styling */
+        header {
+            background: linear-gradient(45deg, #031f27, #042434);
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: transparent;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #2d72d9;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* Minimal and animated navigation bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(45deg, #031f27, #042434);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            font-size: 1rem;
+            color: #2d72d9;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            background-color: #2d72d9;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero Section with minimal background and animation */
+        .hero {
+            background: linear-gradient(45deg, #031f27, #042434);
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #2d72d9;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .hero a {
+            background-color: #ffcc00;
+            color: #333;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .hero a:hover {
+            background-color: #ff9900;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Features Section with card design */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 50px 0;
+            background: linear-gradient(45deg, #031f27, #042434);
+        }
+
+        .feature {
+            background-color: #f4f4f4;
+            padding: 30px;
+            border-radius: 12px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2d72d9;
+        }
+
+        .feature p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Footer with minimal design */
+        footer {
+            background-color: #2d72d9;
+            color: white;
+            border-radius: 4px;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>CloudSphere</h1>
+        <p>Seamless File Management and Sharing
+        </p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="cloud.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Store Your Files Securely</h1>
+        <p>Get 30GB of free cloud storage and access your files anywhere.</p>
+        <a href="signup.html">Get Started</a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature">
+            <h3>30GB Free Storage</h3>
+            <p>Store photos, videos, and documents without worrying about space.</p>
+        </div>
+        <div class="feature">
+            <h3>Secure Backup</h3>
+            <p>Your files are encrypted and protected in our secure cloud servers.</p>
+        </div>
+        <div class="feature">
+            <h3>Easy Sharing</h3>
+            <p>Share your files quickly and easily with just a link.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 CloudSphere. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

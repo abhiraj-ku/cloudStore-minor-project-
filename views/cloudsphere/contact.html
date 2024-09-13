@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact and Resume Upload</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #031f27, #042434);
+            padding: 20px;
+        }
+        h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        .input-field input, .input-field textarea {
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .input-field input:focus, .input-field textarea:focus {
+            border-color: #26a69a;
+            box-shadow: 0 8px 10px rgba(2, 0, 0, 0.15);
+        }
+        .btn {
+            background-color: #26a69a;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #00796b;
+            transform: scale(1.05);
+        }
+        .btn:focus {
+            outline: none;
+        }
+        .file-field .btn {
+            background-color: #26a69a;
+        }
+        .file-field .btn:hover {
+            background-color: #00796b;
+        }
+        .contact-details {
+            margin-top: 30px;
+        }
+        .contact-details b {
+            color: #f5f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Contact</h2>
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="name" placeholder="Name" class="materialize-textarea validate" ng-model="form.name"></textarea>
+                    <label for="name">Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Email" id="email" type="email" class="validate" ng-model="form.email">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Comments" id="comments" type="text" ng-model="form.comment">
+                    <label for="comments">Comments</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light" ng-disabled="(!form.comment || !form.name || !form.email)" ng-click="submitclicked()">Submit</button>
+                </div>
+            </div>
+            <div class="contact-details">
+                <div style="color: #ffffff;"><b>Address:</b>abcd road</div>
+                <div style="color: #ffffff;"><b>Contact Number:</b> +91-973311XXXX</div>
+            </div>
+        </form>
+
+        <h2>Upload Resume</h2>
+        <form class="contactform col s12" novalidate="" ng-submit="submitclicked()" enctype="multipart/form-data">
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="firstname" placeholder="First Name" class="materialize-textarea" ng-model="user.firstname"></textarea>
+                    <label for="firstname">First Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="lastname" placeholder="Last Name" class="materialize-textarea" ng-model="user.lastname"></textarea>
+                    <label for="lastname">Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Email" id="resume-email" type="email" ng-model="user.emailid">
+                    <label for="resume-email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input type="file" name="myFile">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Upload your resume">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
