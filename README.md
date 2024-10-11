@@ -1,17 +1,19 @@
-## Express-Mongoose File Upload and Authentication API
+# CloudStore - your cloud based data storage platform
 
-This project is an Express-based API that provides user authentication and file management functionality. It utilizes:
+This is a AWS based data storage platform with features like user management, file upload and retrieve , unique link for each file with password based protection and much. currently we store documents and plans to add videos and more formats for users
 
-- MongoDB via Mongoose for database operations
+### Tech stacks
+
+- MongoDB
 - AWS S3 for file storage
 
 **Features**
 
-- **User Authentication:** Signup and login functionality with Mongoose.
+- **User Authentication:** Signup and login functionality .
 - **File Upload:** Upload files to AWS S3.
 - **File Management:** Retrieve and delete user files.
-- **MongoDB Integration:** Mongoose ORM for user and file data.
-- **EJS for Templating:** Basic frontend setup with EJS.
+- **Link sharing:** share uniue links with people with password protected files
+- **Secure & Reliable :** Backed by AWS s3 claims 99.9999(11 times) of files being stored securely .
 
 **Project Structure**
 
@@ -39,9 +41,10 @@ This project is an Express-based API that provides user authentication and file 
 
 - Backend: Node.js, Express.js
 - Database: MongoDB (Mongoose)
+- Cloud: AWS cloudfront(CDN), route53, cloudwatch, internet gateway all inside cutsom VPC
 - File Storage: AWS S3
-- Frontend: EJS
-- Middleware: Body-parser, Multer (for file uploads)
+- Frontend: html,css, javascript
+- Middleware:auth-token , Multer (for file uploads)
 
 **Getting Started**
 
