@@ -1,16 +1,27 @@
-const UserData = require("../models/userDataModel");
+const UserData = require("../models/loginSchema");
 const { deleteFileFromS3 } = require("../utils/s3Utils");
 
 exports.getUserData = async (req, res) => {
+  const { emailid } = req.body;
+
+  // Check if the requested emailid matches the authenticated user's email
+  if (req.user.emailid !== emailid) {
+    return res
+      .status(403)
+      .json({ message: "Forbidden: You can only access your own data" });
+  }
+
   try {
-    const user = await UserData.findOne({ emailid: req.query.emailid });
+    const user = await UserData.findOne({ emailid });
     if (user) {
       res.json(user);
     } else {
       res.status(404).json({ message: "User not found" });
     }
   } catch (error) {
-    res.status(500).json({ error: "Error fetching user data", details: error });
+    res
+      .status(500)
+      .json({ error: "Error fetching user data", details: error.message });
   }
 };
 
