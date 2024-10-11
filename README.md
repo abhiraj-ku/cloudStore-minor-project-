@@ -52,7 +52,7 @@ This is a AWS based data storage platform with features like user management, fi
 
 - Node.js and npm installed
 - MongoDB running locally or a MongoDB Atlas connection URI
-- AWS S3 bucket and IAM credentials with proper permissions
+- AWS Account
 
 **Installation**
 
@@ -61,7 +61,7 @@ This is a AWS based data storage platform with features like user management, fi
 Bash
 
 ```
-git clone https://github.com/yourusername/express-mongoose-file-upload.git
+https://github.com/your-username/cloudStore-minor-project-.git
 
 ```
 
@@ -70,7 +70,7 @@ git clone https://github.com/yourusername/express-mongoose-file-upload.git
 Bash
 
 ```
-cd express-mongoose-file-upload
+cd cloudStore-minor-project-
 
 ```
 
