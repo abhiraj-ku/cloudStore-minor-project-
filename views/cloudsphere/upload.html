@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Form</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #031f27, #042434);
+            background-size: 200% 200%;
+            padding: 20px;
+        }
+        .container {
+            background-color: rgba(40, 41, 42, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(11, 1, 1, 0.76);
+            padding: 20px;
+        }
+        h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        .input-field input {
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .input-field input:focus {
+            border-color: #26a69a;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+        .btn {
+            background-color: #26a69a;
+            border-radius: 4px;
+            border: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #00796b;
+            transform: scale(1.05);
+        }
+        .file-field .btn {
+            background-color: #26a69a;
+        }
+        .file-field .btn:hover {
+            background-color: #00796b;
+        }
+        .input-field label {
+            font-size: 0.8rem;
+        }
+        .input-field .file-path-wrapper .file-path {
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        #newfile{
+            background: #26a69a;
+            border: transparent;
+        }
+        .preview-img {
+            max-width: 100px;
+            max-height: 100px;
+            margin: 10px;
+            border: 2px solid #26a69a;
+            border-radius: 4px;
+            position: relative;
+        }
+        .remove-btn {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="center-align">Upload Your Files</h2>
+        <form class="col s12" novalidate="">
+            <div class="row">
+                <div class="file-field input-field col s12">
+                    <div class="btn">
+                        <span>Select Files</span>
+                        <input type="file" id="newfile" name="newFile" multiple accept="image/*,video/*,.pdf,.doc,.docx" onchange="previewFiles()">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" id="file-name" placeholder="No file selected">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row center-align" id="preview-container">
+            </div>
+    
+            <div class="row center-align">
+                <button class="btn waves-effect waves-light" type="button" onclick="uploadFile()">Upload</button>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Include Materialize CSS Framework -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+function previewFiles() {
+    const fileInput = document.getElementById('newfile');
+    const fileName = document.getElementById('file-name');
+    const previewContainer = document.getElementById('preview-container');
+    const files = fileInput.files;
+    
+    previewContainer.innerHTML = '';
+
+    if (files.length > 10) {
+        alert("Cannot upload more than 10 files.");
+        fileInput.value = ""; // Reset file input
+        fileName.value = "No file selected";
+        return;
+    }
+
+    let fileNames = [];
+    let fileData = [];
+
+    Array.from(files).forEach(file => {
+        fileNames.push(file.name);
+
+        // Save file data (for images, save base64)
+        if (file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const imgContainer = document.createElement('div');
+                imgContainer.style.position = "relative";
+
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.classList.add('preview-img');
+
+                const removeBtn = document.createElement('span');
+                removeBtn.innerText = "x";
+                removeBtn.classList.add('remove-btn');
+                removeBtn.onclick = () => removeFile(file.name);
+
+                imgContainer.appendChild(img);
+                imgContainer.appendChild(removeBtn);
+                previewContainer.appendChild(imgContainer);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        fileData.push({
+            name: file.name,
+            type: file.type,
+            size: file.size
+        });
+    });
+
+    localStorage.setItem('uploadedFiles', JSON.stringify(fileData));
+    
+   
+    fileName.value = fileNames.join(', ');
+}
+
+
+function uploadFile() {
+    const fileInput = document.getElementById('newfile');
+    if (fileInput.files.length > 0) {
+        alert("You uploaded the files.");
+    } else {
+        alert("Please select files first.");
+    }
+}
+
+
+window.onload = function() {
+    const savedFiles = JSON.parse(localStorage.getItem('uploadedFiles')) || [];
+    const previewContainer = document.getElementById('preview-container');
+
+    // Display saved files
+    savedFiles.forEach(file => {
+        const imgContainer = document.createElement('div');
+        imgContainer.style.position = "relative";
+
+      
+        if (file.type.startsWith('image/')) {
+            const img = document.createElement('img');
+            img.src = "data:image/jpeg;base64," + file.data;
+            img.classList.add('preview-img');
+            
+            const removeBtn = document.createElement('span');
+            removeBtn.innerText = "x";
+            removeBtn.classList.add('remove-btn');
+            removeBtn.onclick = () => removeFile(file.name);
+
+            imgContainer.appendChild(img);
+            imgContainer.appendChild(removeBtn);
+            previewContainer.appendChild(imgContainer);
+        }
+    });
+}
+
+function removeFile(fileName) {
+    const savedFiles = JSON.parse(localStorage.getItem('uploadedFiles')) || [];
+    const updatedFiles = savedFiles.filter(file => file.name !== fileName);
+
+    // Update localStorage
+    localStorage.setItem('uploadedFiles', JSON.stringify(updatedFiles));
+
+    // Refresh the preview
+    document.getElementById('preview-container').innerHTML = '';
+    updatedFiles.forEach(file => previewFiles(file));
+}
+
+</script>
+  
+</body>
+</html>
