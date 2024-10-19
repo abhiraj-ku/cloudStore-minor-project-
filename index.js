@@ -1,56 +1,33 @@
-const http = require("http");
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const ejs = require("ejs");
 const authRoutes = require("./routes/authRoutes");
-const userRoutes = require("./routes/userRoutes");
+const userRoutes = require("./routes/userDetailsRoute");
+const PORT = process.env.PORT;
+const cors = require("cors");
 
 // Initialize Express app
 const app = express();
-
-app.use(express.static(__dirname + "/"));
-app.set("views", __dirname + "/views");
-app.engine("html", ejs.renderFile);
-app.set("view engine", "html");
+app.use(cors());
 
 // MongoDB connection setup using Mongoose
 mongoose
-  .connect("mongodb://localhost:27017/cloudStore", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Connected to MongoDB using Mongoose"))
+  .connect("mongodb://localhost:27017/cloudStore")
+  .then(() => console.log("Connected to MongoDB"))
   .catch((error) => console.error("MongoDB connection error:", error));
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.set("port", process.env.PORT || 8081);
-
-// CORS Middleware
-app.use((req, res, next) => {
-  const allowedOrigins = ["http://localhost:8080"];
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With,Content-Type,Origin,Accept"
-  );
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  next();
+// Root route for Helmet config
+app.get("/", (req, res) => {
+  res.send("hello from cloudstore");
 });
-
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 
-http.createServer(app).listen(app.get("port"), () => {
-  console.log("Server listening on port " + app.get("port"));
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });

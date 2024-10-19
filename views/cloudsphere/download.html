@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download - CloudStore</title>
+    <style>
+        /* Resetting default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #031f27, #042434);
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(45deg, #031f27, #042434);
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            font-size: 1rem;
+            color: #2d72d9;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background-color: #2d72d9;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px; /* Adjust margin to account for fixed nav */
+            padding: 2rem;
+            background: linear-gradient(45deg, #031f27, #042434);
+            border-radius: 10px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-top: 10px;
+        }
+
+        /* Download Section */
+        .download-options {
+            margin-top: 20px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .download-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            animation: slideIn 1s ease-out;
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-card h3 {
+            font-size: 1.5rem;
+            color: #2d72d9;
+            margin-bottom: 10px;
+        }
+
+        .download-card p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .download-card a {
+            background-color: #2d72d9;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .download-card a:hover {
+            background-color: #1a5bb8;
+            transform: scale(1.05);
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #2d72d9;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateX(-20px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="cloud.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Download CloudStore</h1>
+        <p style="color: #666;">Choose your platform and start enjoying CloudStore's powerful features.</p>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-options">
+        <div class="download-card">
+            <h3>Windows</h3>
+            <p>Download CloudStore for Windows and start managing your files easily.</p>
+            <a href="#">Download</a>
+        </div>
+        <div class="download-card">
+            <h3>Mac</h3>
+            <p>Get CloudStore for Mac to synchronize your files seamlessly across devices.</p>
+            <a href="#">Download</a>
+        </div>
+        <div class="download-card">
+            <h3>Linux</h3>
+            <p>For Linux users, CloudStore offers a versatile tool for file management.</p>
+            <a href="#">Download</a>
+        </div>
+        <div class="download-card">
+            <h3>Mobile</h3>
+            <p>Download our mobile app to access your files on the go.</p>
+            <a href="#">Download</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 CloudSphere. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

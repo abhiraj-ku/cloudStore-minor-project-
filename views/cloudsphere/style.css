@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Prevents scrollbars due to animations */
+    background: linear-gradient(45deg, #031f27, #042434);
+    background-size: 200% 200%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+.container {
+    background-color: rgba(40, 41, 42, 0.9);
+    padding: 4rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(11, 1, 1, 0.76);
+    text-align: center;
+    width: 350px;
+    z-index: 1;
+    position: relative;
+    animation: slideIn 1.2s ease-out;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container img {
+    width: 150px; /* Adjust the size of the icon */
+    margin-bottom: 10px;
+    animation: popup 1s ease-in-out;
+}
+
+@keyframes popup {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: #f8f7f7;
+    margin-top: 10px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.login-form input {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.login-form input:focus {
+    border-color: #1d72b8;
+    outline: none;
+}
+
+.login-form .signin-btn {
+    background-color: #1d72b8;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.login-form .signin-btn:hover {
+    background-color: #155a8a;
+}
+
+.signup-container {
+    margin-top: 10px;
+}
+
+.signup-container p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #fffbfb;
+}
+
+.signup-container .signup-btn {
+    margin-bottom: 2px;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.signup-container .signup-btn:hover {
+    background-color: #388e3c;
+}
+
+
+
+.image{
+    padding: 10;
+    border-radius: 4px;
+}

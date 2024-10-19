@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <title>CloudSphere</title>
+    <style>
+      
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #031f27, #042434);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a, button {
+            transition: all 0.3s ease-in-out;
+        }
+
+        header {
+            background: linear-gradient(45deg, #031f27, #042434);
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: transparent;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #2d72d9;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #eceaea;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(45deg, #031f27, #042434);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            font-size: 1rem;
+            color: #2d72d9;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            background-color: #2d72d9;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero {
+            margin-top: 30px;
+            /* background: linear-gradient(135deg, #1e3c72, #2a5298); */
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        .hero a {
+            padding: 15px 30px;
+            background-color: #26a69a;
+            color: white;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .hero a:hover {
+            background-color: #00796b;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 60px 20px;
+            background-color: #ffffff;
+        }
+        .feature {
+            width: 30%;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .feature h3 {
+            color: #26a69a;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .feature p {
+            font-size: 16px;
+            color: #555;
+        }
+        .feature img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #2d72d9;
+            color: white;
+            border-radius: 4px;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- <h1>CloudSphere</h1> -->
+         <img src="assets/cloudstore_logo.png" alt="cloudstore_logo">
+      
+    </header>
+
+    <nav>
+        <ul>
+            <!-- <li><a href="#">Home</a></li> -->
+            <li><a href="upload.html">Upload</a></li>
+            <!-- <li><a href="pricing.html">Pricing</a></li> -->
+            <li><a href="retrieve.html">Files</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+   
+     <section class="hero">
+        <h1>Store Your Files Securely</h1>
+        <p>Rest Easy—AWS Has Your Files Covered.</p>
+        <a href="/views/cloudsphere/login.html">Get Started</a>
+    </section>
+
+   
+    <section class="features">
+        <div class="feature">
+            <img src="assets/folder_6126501.png" alt="Upload Multiple Files">
+            <h3>Upload Multiple Files</h3>
+            <p>Start uploading multiple files including images, PDFs, and more because your moments are yours to keep.</p>
+        </div>
+        <div class="feature">
+            <img src="assets/secure_11442748.png" alt="Secure Backup">
+            <h3>Secure File Upload with AWS</h3>
+            <p>All your files are encrypted with cutting-edge security protocols and backed up on AWS’s secure cloud servers, keeping them safe from loss or theft.</p>
+        </div>
+        <div class="feature">
+            <img src="assets/work_16624997.png" alt="Easy Sharing">
+            <h3>Easy File Sharing with Unique Links</h3>
+            <p>Share files quickly and easily with a secure link. Whether it’s a photo or a business document, sharing has never been simpler.</p>
+        </div>
+    </section>
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <footer>
+        <p>&copy; 2024 CloudSphere. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

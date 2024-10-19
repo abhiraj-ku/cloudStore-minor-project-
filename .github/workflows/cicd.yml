@@ -1,0 +1,30 @@
+name: cloudsphere-cicd pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: checkout code repo
+        uses: actions/checkout@v3
+
+      - name: set up node js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: create env files
+        run: |
+          touch .env
+          echo "{{secrets.PROD_ENV_FILE}}" > .env
+      - name: start the server on remote ec2
+        run: pm2 restart cloudphere-server
