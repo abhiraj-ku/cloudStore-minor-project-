@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudSphere Features</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic body styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #031f27, #042434);
+            color: #333;
+            line-height: 1.6;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        /* Keyframe animation for fadeIn effect */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(45deg, #031f27, #042434);
+            padding: 1rem;
+            border-bottom: transparent;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            animation: slideIn 1.2s ease-out;
+        }
+
+        /* Keyframe animation for navigation slideIn */
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            font-size: 1rem;
+            color: #2d72d9;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background-color: #2d72d9;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 2rem 0;
+            background: linear-gradient(45deg, #031f27, #042434);
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: #2d72d9;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-top: 10px;
+        }
+
+        /* Features Section */
+        .features-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Adding entrance animation for feature cards */
+        .feature-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            animation: fadeInUp 1.2s ease-in-out;
+        }
+
+        /* Keyframe animation for feature cards */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2d72d9;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #2d72d9;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 50px;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="cloud.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Our Features</h1>
+        <p style="color: #666;">Discover the features that make CloudSphere the best cloud storage platform</p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-container">
+        <div class="feature-card">
+            <h3>30GB Free Storage</h3>
+            <p>Store up to 30GB of your files for free, without any hidden fees.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Advanced Security</h3>
+            <p>All your files are encrypted and stored securely, giving you peace of mind.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Easy File Sharing</h3>
+            <p>Share files with anyone easily by generating a shareable link in seconds.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Cross-Device Syncing</h3>
+            <p>Sync your files across all your devices to access them anytime, anywhere.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Automatic Backup</h3>
+            <p>Enable automatic backup for your files to ensure they're never lost.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Fast Uploads</h3>
+            <p>Upload your files at lightning speed, with no waiting times.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 CloudSphere. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

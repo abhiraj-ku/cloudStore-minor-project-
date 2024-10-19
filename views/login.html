@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - CloudStore</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden; /* Prevents scrollbars due to animations */
+        background: linear-gradient(45deg, #031f27, #042434);
+        background-size: 200% 200%;
+        animation: gradientAnimation 10s ease infinite;
+      }
+
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 0%;
+        }
+        50% {
+          background-position: 100% 100%;
+        }
+        100% {
+          background-position: 0% 0%;
+        }
+      }
+
+      .container {
+        background-color: rgba(40, 41, 42, 0.9);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 8px 15px rgba(11, 1, 1, 0.76);
+        text-align: center;
+        width: 350px;
+        z-index: 1;
+        position: relative;
+        animation: bounceIn 1s ease-out; /* Bounce-in animation */
+      }
+
+      @keyframes bounceIn {
+        0% {
+          transform: scale(0);
+          opacity: 0;
+        }
+        60% {
+          transform: scale(1.2);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .container img {
+        width: 150px;
+        margin-bottom: 10px;
+        animation: popup 1s ease-in-out; /* Popup animation for logo */
+      }
+
+      @keyframes popup {
+        0% {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        50% {
+          transform: scale(1.2);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        color: #ffffff;
+        margin-top: 10px;
+      }
+
+      .login-form {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+
+      .login-form input {
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+      }
+
+      .login-form input:focus {
+        border-color: #1d72b8;
+        outline: none;
+      }
+
+      .login-form .login-btn {
+        background-color: #1d72b8;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+      }
+
+      .login-form .login-btn:hover {
+        background-color: #155a8a;
+      }
+
+      .signup-link {
+        margin-top: 10px;
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      .signup-link a {
+        color: #1d72b8;
+        text-decoration: none;
+      }
+
+      .signup-link a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="LOGO.png" alt="CloudStore Logo" />
+      <h1>Login</h1>
+      <form class="login-form">
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+      <div class="signup-link">
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+      </div>
+    </div>
+  </body>
+</html>

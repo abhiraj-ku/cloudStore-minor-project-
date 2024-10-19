@@ -1,102 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      rel="stylesheet"
+    />
     <title>Cloudstore</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .navbar {
-            background-color: #333;
-            overflow: hidden;
-        }
+      body {
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(45deg, #031f27, #042434);
+        color: #333;
+        line-height: 2.5;
+      }
 
-        .navbar a {
-            float: left;
-            display: block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
+      a,
+      button {
+        transition: all 0.3s ease-in-out;
+      }
 
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
+      header {
+        background: linear-gradient(45deg, #031f27, #042434);
+        padding: 1.5rem;
+        text-align: center;
+        border-bottom: transparent;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
 
-        .logo {
-            float: left;
-            padding: 10px;
-        }
+      header h1 {
+        font-size: 2.5rem;
+        color: #2d72d9;
+      }
 
-        .navbar-right {
-            float: right;
-        }
+      header p {
+        font-size: 1.1rem;
+        color: #eceaea;
+      }
 
-        .container {
-            padding: 20px;
-            text-align: center;
-        }
+      /* Navbar Styling */
+      nav {
+        background-color: #042434;
+      }
 
-        .options-table {
-            width: 80%;
-            margin: 0 auto;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+      nav ul a {
+        color: #2d72d9;
+        font-weight: bold;
+      }
 
-        .options-table th, .options-table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
+      nav ul a:hover {
+        background-color: #2d72d9;
+        color: white;
+      }
 
-        .options-table th {
-            background-color: #333;
-            color: white;
-        }
+      .sidenav {
+        background-color: #c6e3eb;
+      }
 
-        .options-table tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+      .hero {
+        margin-top: 30px;
+        color: white;
+        padding: 80px 20px;
+        text-align: center;
+      }
 
-        .options-table tr:hover {
-            background-color: #ddd;
-        }
+      .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
 
-        .options-table th, .options-table td {
-            text-align: left;
-        }
+      .hero p {
+        font-size: 18px;
+        margin-bottom: 40px;
+      }
 
+      .hero a {
+        padding: 15px 30px;
+        background-color: #26a69a;
+        color: white;
+        border-radius: 4px;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .hero a:hover {
+        background-color: #00796b;
+      }
+
+      .features {
+        display: flex;
+        justify-content: space-around;
+        padding: 60px 20px;
+        background-color: #ffffff;
+      }
+
+      .feature {
+        width: 30%;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+
+      .feature h3 {
+        color: #26a69a;
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .feature p {
+        font-size: 16px;
+        color: #555;
+      }
+
+      .feature img {
+        width: 100px;
+        margin-bottom: 20px;
+      }
+
+      footer {
+        background-color: #2d72d9;
+        color: white;
+        border-radius: 4px;
+        padding: 1rem;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 0.9rem;
+      }
     </style>
-</head>
+  </head>
+  <body>
+    <header>
+      <img src="assets/cloudstore_logo.png" alt="cloudstore_logo" />
+    </header>
 
-<body>
+    <!-- Navbar with dropdown menu for mobile -->
+    <nav class="nav-wrapper">
+      <div class="container">
+        <a href="#" class="brand-logo">Cloudstore</a>
+        <!-- Updated Menu icon for mobile view using SVG -->
+        <a href="#" data-target="mobile-menu" class="sidenav-trigger">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="36"
+            height="36"
+            viewBox="0 0 24 24"
+            id="menu"
+          >
+            <path fill="none" d="M0 0h24v24H0V0z"></path>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+          </svg>
+        </a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="upload.html">Upload</a></li>
+          <li><a href="retrieve.html">Files</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </nav>
 
-    <div class="navbar">
-        <img src="LOGO.png" alt="Logo_Cloudstore" class="logo">
-        <a href="index.html">Home</a>
-        <a href="login.html">Login</a>
-        <a href="signup.html">Sign Up</a>
-        
-        <a href="contact.html">Contact</a>
-        <a href="retrieve.html">Retrieve</a>
-        <a href="update.html">Update</a>
-        <a href="aboutus.html">About Us</a>
-    </div>
+    <!-- Mobile Navigation Menu -->
+    <ul class="sidenav" id="mobile-menu">
+      <li><a href="upload.html">Upload</a></li>
+      <li><a href="retrieve.html">Files</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
 
-    <div class="container">
-        <h1>Welcome to Cloudstore</h1>
-        <p>Your reliable online cloud storage solution for easy uploading, downloading, and managing your files.</p>
+    <section class="hero">
+      <h1>Store Your Files Securely</h1>
+      <p>Rest Easy—AWS Has Your Files Covered.</p>
+      <a href="login.html">Get Started</a>
+    </section>
 
-        
-</body>
+    <section class="features">
+      <div class="feature">
+        <img src="assets/folder_6126501.png" alt="Upload Multiple Files" />
+        <h3>Upload Multiple Files</h3>
+        <p>
+          Start uploading multiple files including images, PDFs, and more
+          because your moments are yours to keep.
+        </p>
+      </div>
+      <div class="feature">
+        <img src="assets/secure_11442748.png" alt="Secure Backup" />
+        <h3>Secure File Upload with AWS</h3>
+        <p>
+          All your files are encrypted with cutting-edge security protocols and
+          backed up on AWS’s secure cloud servers, keeping them safe from loss
+          or theft.
+        </p>
+      </div>
+      <div class="feature">
+        <img src="assets/work_16624997.png" alt="Easy Sharing" />
+        <h3>Easy File Sharing with Unique Links</h3>
+        <p>
+          Share files quickly and easily with a secure link. Whether it’s a
+          photo or a business document, sharing has never been simpler.
+        </p>
+      </div>
+    </section>
 
+    <footer>
+      <p>&copy; 2024 Cloudstore. All rights reserved.</p>
+    </footer>
+
+    <!-- Importing Materialize JS and initializing sidenav -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const elems = document.querySelectorAll(".sidenav");
+        const instances = M.Sidenav.init(elems);
+      });
+    </script>
+  </body>
 </html>
