@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Retrieve Past Uploads</title>
+    <!-- Materialize CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(45deg, #031f27, #042434);
+        padding: 20px;
+      }
+      .container {
+        background: linear-gradient(45deg, #031f27, #042434);
+        border-radius: 8px;
+      }
+      h2 {
+        color: #fff;
+        margin-bottom: 20px;
+      }
+      .btn {
+        background-color: #26a69a;
+        border-radius: 4px;
+        border: none;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      .btn:hover {
+        background-color: #00796b;
+        transform: scale(1.05);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 30px;
+      }
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      th {
+        background-color: #26a69a;
+        color: white;
+        font-weight: bold;
+      }
+      tr:hover {
+        background-color: #f1f1f1;
+        transition: background-color 0.3s ease;
+      }
+      a {
+        color: #26a69a;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      a:hover {
+        color: #00796b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Retrieve Past Uploads</h2>
+      <button class="btn waves-effect waves-light" ng-click="retrieveData()">
+        Retrieve all Files
+      </button>
+      <table class="bordered">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>File Description</th>
+            <th>File Location</th>
+            <th>File Upload Time</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="n in retrievedData">
+            <td>abhi.kumar</td>
+            <td>Kumar</td>
+            <td>Document_01</td>
+            <td>
+              <a href="n.fileLocation" target="_blank">{{n.fileLocation}}</a>
+            </td>
+            <td>08/15/2024</td>
+            <td>
+              <button
+                class="btn waves-effect waves-light"
+                ng-click="deleteFile(n.fileKey)"
+              >
+                Delete
+              </button>
+              <button
+                class="btn waves-effect waves-light"
+                ng-click="updateFile(n.fileKey)"
+              >
+                Update
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
